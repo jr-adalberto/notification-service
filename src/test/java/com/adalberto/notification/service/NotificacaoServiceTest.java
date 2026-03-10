@@ -12,10 +12,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -48,6 +48,6 @@ class NotificacaoServiceTest {
     void deveRetornarListaVaziaQuandoNaoHaNotificacoes(){
         when(notificacaoRepository.findAll()).thenReturn(Collections.emptyList());
         var resultado = notificacaoService.listarNotificacoes();
-        assert resultado.isEmpty();
+        assertTrue(resultado.isEmpty());
     }
 }
